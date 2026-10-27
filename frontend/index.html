@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Communication Protocols Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📡 Real-Time Protocols Sandbox</h1>
+    
+    <!-- User Setup Card -->
+    <div class="card">
+      <label for="username">Username:</label>
+      <input type="text" id="username" value="User_Alpha">
+    </div>
+
+    <!-- Protocol Tabs Selectors -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchProtocol('polling')">HTTP Polling</button>
+      <button class="tab-btn" onclick="switchProtocol('long-polling')">Long Polling</button>
+      <button class="tab-btn" onclick="switchProtocol('sse')">Server-Sent Events (SSE)</button>
+      <button class="tab-btn" onclick="switchProtocol('websocket')">WebSockets</button>
+    </div>
+
+    <div class="status-bar">
+      Active Protocol: <strong id="active-protocol-name">HTTP Polling</strong> | 
+      Status: <span id="connection-status" class="status-disconnected">Offline</span>
+    </div>
+
+    <!-- Message Control Form -->
+    <div class="card chat-box">
+      <div id="messages-display" class="messages-area"></div>
+      <div class="input-area">
+        <input type="text" id="message-input" placeholder="Type a message to send live...">
+        <button id="send-btn" onclick="triggerMessageSend()">Send Message</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Communication Scripts -->
+  <script src="js/polling.js"></script>
+  <script src="js/longPolling.js"></script>
+  <script src="js/sse.js"></script>
+  <script src="js/websocket.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
